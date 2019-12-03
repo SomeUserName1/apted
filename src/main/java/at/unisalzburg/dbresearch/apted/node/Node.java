@@ -87,8 +87,8 @@ public class Node<D> {
   /**
    * Returns a string representation of the tree in bracket notation.
    *
-   * <p>IMPORTANT: Works only for nodes storing {@link node.StringNodeData}
-   * due to using {@link node.StringNodeData#getLabel()}.
+   * <p>IMPORTANT: Works only for nodes storing {@link at.unisalzburg.dbresearch.apted.node.StringNodeData}
+   * due to using {@link at.unisalzburg.dbresearch.apted.node.StringNodeData#getLabel()}.
    *
    * @return tree in bracket notation.
    */

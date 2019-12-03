@@ -21,23 +21,20 @@
  * SOFTWARE.
  */
 
-package costmodel;
+package at.unisalzburg.dbresearch.apted.costmodel;
 
-import costmodel.CostModel;
-import node.Node;
-import node.StringNodeData;
+import at.unisalzburg.dbresearch.apted.node.Node;
+import at.unisalzburg.dbresearch.apted.node.StringNodeData;
 
 /**
- * This is a unit-nost model defined on string labels.
- *
- * @deprecated Due to packaging update replaced by {@link at.unisalzburg.dbresearch.apted.costmodel.StringUnitCostModel}
+ * This is a unit-nost model, only taking structural differences into account,i.e. ignoring the labels.
  *
  * @see CostModel
  * @see StringNodeData
  */
  // TODO: Use a label dictionary to encode string labels with integers for
  //       faster rename cost computation.
-@Deprecated public class StringUnitCostModel implements CostModel<StringNodeData> {
+public class StructureCostModel implements CostModel<StringNodeData> {
 
   /**
    * Calculates the cost of deleting a node.
@@ -60,14 +57,13 @@ import node.StringNodeData;
   }
 
   /**
-   * Calculates the cost of renaming the label of the source node to the label
-   * of the destination node.
+   *    Ignores all costs for renaming.
    *
    * @param n1 a source node for rename.
    * @param n2 a destination node for rename.
-   * @return {@code 1} if labels of renamed nodes are equal, and {@code 0} otherwise.
+   * @return  always 0.
    */
   public float ren(Node<StringNodeData> n1, Node<StringNodeData> n2) {
-    return (n1.getNodeData().getLabel().equals(n2.getNodeData().getLabel())) ? 0.0f : 1.0f;
+    return 0.0f;
   }
 }

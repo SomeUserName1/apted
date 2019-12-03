@@ -183,8 +183,8 @@ public class CorrectnessTest {
    * Compute TED for a single test case and compare to the correct value. Uses
    * node labels with a single string value and unit cost model.
    *
-   * @see node.StringNodeData
-   * @see costmodel.StringUnitCostModel
+   * @see at.unisalzburg.dbresearch.apted.node.StringNodeData
+   * @see at.unisalzburg.dbresearch.apted.costmodel.StringUnitCostModel
    */
   @Test
   public void distanceUnitCostStringNodeDataCostModel() {
@@ -209,8 +209,8 @@ public class CorrectnessTest {
    * <p>Triggers spf_L to execute. The strategy is fixed to left paths in the
    * left-hand tree.
    *
-   * @see node.StringNodeData
-   * @see costmodel.StringUnitCostModel
+   * @see at.unisalzburg.dbresearch.apted.node.StringNodeData
+   * @see at.unisalzburg.dbresearch.apted.costmodel.StringUnitCostModel
    */
   @Test
   public void distanceUnitCostStringNodeDataCostModelSpfL() {
@@ -232,8 +232,8 @@ public class CorrectnessTest {
    *<p>Triggers spf_R to execute. The strategy is fixed to right paths in the
    * left-hand tree.
    *
-   * @see node.StringNodeData
-   * @see costmodel.StringUnitCostModel
+   * @see at.unisalzburg.dbresearch.apted.node.StringNodeData
+   * @see at.unisalzburg.dbresearch.apted.costmodel.StringUnitCostModel
    */
   @Test
   public void distanceUnitCostStringNodeDataCostModelSpfR() {
@@ -256,8 +256,8 @@ public class CorrectnessTest {
    * cost to the correct TED value. Uses node labels with a single string value
    * and unit cost model.
    *
-   * @see node.StringNodeData
-   * @see costmodel.StringUnitCostModel
+   * @see at.unisalzburg.dbresearch.apted.node.StringNodeData
+   * @see at.unisalzburg.dbresearch.apted.costmodel.StringUnitCostModel
    */
   @Test
   public void mappingCostUnitCostStringNodeDataCostModel() {

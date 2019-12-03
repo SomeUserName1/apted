@@ -43,14 +43,14 @@ public class AllPossibleMappingsTED<C extends CostModel, D> {
   /**
    * Indexer of the source tree.
    *
-   * @see node.NodeIndexer
+   * @see at.unisalzburg.dbresearch.apted.node.NodeIndexer
    */
   private NodeIndexer it1;
 
   /**
    * Indexer of the destination tree.
    *
-   * @see node.NodeIndexer
+   * @see at.unisalzburg.dbresearch.apted.node.NodeIndexer
    */
   private NodeIndexer it2;
 

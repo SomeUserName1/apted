@@ -30,8 +30,8 @@ import java.util.List;
 import at.unisalzburg.dbresearch.apted.distance.APTED;
 import at.unisalzburg.dbresearch.apted.node.Node;
 import at.unisalzburg.dbresearch.apted.node.StringNodeData;
+import at.unisalzburg.dbresearch.apted.costmodel.StructureCostModel;
 import at.unisalzburg.dbresearch.apted.costmodel.CostModel;
-import at.unisalzburg.dbresearch.apted.costmodel.StringUnitCostModel;
 import at.unisalzburg.dbresearch.apted.parser.InputParser;
 import at.unisalzburg.dbresearch.apted.parser.BracketStringInputParser;
 
@@ -162,7 +162,7 @@ public class CommandLine<C extends CostModel, P extends InputParser> {
    * @param args array of command line arguments passed when executing jar file.
    */
   public static void main(String[] args) {
-    CommandLine<StringUnitCostModel, BracketStringInputParser> rtedCL = new CommandLine<>(new StringUnitCostModel(), new BracketStringInputParser());
+    CommandLine<StructureCostModel, BracketStringInputParser> rtedCL = new CommandLine<>(new StructureCostModel(), new BracketStringInputParser());
     rtedCL.runCommandLine(args);
   }
 
@@ -171,11 +171,11 @@ public class CommandLine<C extends CostModel, P extends InputParser> {
    *
    * @param args array of command line arguments passed when executing jar file.
    */
-   public void runCommandLine(String[] args) {
+   public void runCommandLine(String[] args) { 
     rted = new APTED<C, StringNodeData>(costModel);
-    try {
-      for (int i = 0; i < args.length; i++) {
-        if (args[i].equals("--help") || args[i].equals("-h")) {
+    try { 
+      for (int i = 0; i < args.length; i++) { 
+        if (args[i].equals("--help") || args[i].equals("-h") ) {
           System.out.println(helpMessage);
           System.exit(0);
         } else if (args[i].equals("-t") || args[i].equals("--trees")) {
@@ -204,7 +204,7 @@ public class CommandLine<C extends CostModel, P extends InputParser> {
       System.exit(0);
     }
 
-    if (!run) {
+    if (!run) { 
       System.out.println(wrongArgumentsMessage);
       System.exit(0);
     }
@@ -214,16 +214,16 @@ public class CommandLine<C extends CostModel, P extends InputParser> {
     ted = rted.computeEditDistance(t1, t2);
 
     long time2 = (new Date()).getTime();
-    if (verbose) {
+    if (verbose) { 
       System.out.println("distance:             " + ted);
       System.out.println("runtime:              " + ((time2 - time1) / 1000.0));
     } else {
       System.out.println(ted);
     }
 
-    if (mapping) { // TED is computed anyways.
+    if (mapping) { // TED is computedanyw ays.
       List<int[]> editMapping = rted.computeEditMapping();
-      for (int[] nodeAlignment : editMapping) {
+      for (int[] nodeAlignment : editMapping) { 
         System.out.println(nodeAlignment[0] + "->" + nodeAlignment[1]);
       }
     }
@@ -238,14 +238,14 @@ public class CommandLine<C extends CostModel, P extends InputParser> {
    * @param ts2 destination input tree as string.
    * @see Node
    */
-  private void parseTreesFromCommandLine(String ts1, String ts2) {
-    try {
+  private void parseTreesFromCommandLine(String ts1 , String ts2) {
+    try { 
       t1 = inputParser.fromString(ts1);
     } catch (Exception e) {
       System.out.println("TREE1 argument has wrong format");
       System.exit(0);
     }
-    try {
+    try { 
       t2 = inputParser.fromString(ts2);
     } catch (Exception e) {
       System.out.println("TREE2 argument has wrong format");
@@ -262,14 +262,14 @@ public class CommandLine<C extends CostModel, P extends InputParser> {
    * @param fs2 path to file with destination tree.
    * @see Node
    */
-  private void parseTreesFromFiles(String fs1, String fs2) {
-    try {
+  private void parseTreesFromFiles(String fs1,  String fs2) {
+    try { 
       t1 = inputParser.fromString((new BufferedReader(new FileReader(fs1))).readLine());
     } catch (Exception e) {
       System.out.println("TREE1 argument has wrong format");
       System.exit(0);
     }
-    try {
+    try { 
       t2 = inputParser.fromString((new BufferedReader(new FileReader(fs2))).readLine());
     } catch (Exception e) {
       System.out.println("TREE2 argument has wrong format");

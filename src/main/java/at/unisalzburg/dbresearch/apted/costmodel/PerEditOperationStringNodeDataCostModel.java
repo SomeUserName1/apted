@@ -28,7 +28,7 @@ import at.unisalzburg.dbresearch.apted.node.Node;
 import at.unisalzburg.dbresearch.apted.node.StringNodeData;
 
 /**
- * This is a cost model defined on {@link node.StringNodeData} with a fixed cost
+ * This is a cost model defined on {@link at.unisalzburg.dbresearch.apted.node.StringNodeData} with a fixed cost
  * per edit operation.
  */
 public class PerEditOperationStringNodeDataCostModel implements CostModel<StringNodeData> {
